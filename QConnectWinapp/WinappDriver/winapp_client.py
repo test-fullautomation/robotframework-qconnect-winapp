@@ -122,7 +122,7 @@ Winapp client connection class.
    _DEFAULT_APP_DRIVER = "C:/Program Files (x86)/Windows Application Driver/WinAppDriver.exe"
    _CONNECTION_TYPE = "Winapp"
 
-   def __init__(self, _mode, config):
+   def __init__(self, _mode=None, config=None):
       """
 Constructor of WinAppClient class.
 
@@ -142,16 +142,27 @@ Constructor of WinAppClient class.
       """
       _mident = '%s.%s()' % (self.__class__.__name__, currentframe().f_code.co_name)
       BuiltIn().log("[%s] Initializing WinAppClient with the configuration as '%s'..." % (_mident, str(config)), constants.LOG_LEVEL_DEBUG)
+
+      # Initialize configuration
+      config = config or {}
       self.config = WinappConfig(**config)
+      self.caps = self.config.caps if isinstance(self.config.caps, dict) else self.config.caps.__dict__
       self.host = self.config.host
       self.port = self.config.port
-      self.caps = self.config.caps.__dict__
+
+      # Initialize instance variables
       self.winapp_driver = None
       self.winapp_driver_pid = None
-      self.__start_winapp_driver()
+      self._init_error = None
       self._find_element_method_dict = {}
       self._supported_action_handlers = None
       self.__support_id_list = None
+
+      # Start driver, storing any errors for later
+      try:
+         self.__start_winapp_driver()
+      except Exception as ex:
+         self._init_error = ex
 
    def __start_winapp_driver(self):
       """
@@ -173,6 +184,8 @@ Connect to WinappDriver which is listening on configured port.
 
 (*no returns*)
       """
+      if self._init_error:
+         raise self._init_error
       if self.caps:
          self.winapp_driver = CustomWebDriver(
             command_executor='http://%s:%s' % (self.host, self.port),
