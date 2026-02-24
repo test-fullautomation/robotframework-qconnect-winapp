@@ -23,7 +23,7 @@ Prerequisites
 
 To use **QConnectWinapp**, the following applications must be installed before:
 
-* `WinAppDriver <https://github.com/Microsoft/WinAppDriver/releases>`__ (version \textgreater{}=1.2.1)
+* `WinAppDriver <https://github.com/Microsoft/WinAppDriver/releases>`__ (version >= 1.2.1)
 * `Windows SDK <https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/>`__
 
 How to install
