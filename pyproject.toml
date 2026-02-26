@@ -18,7 +18,7 @@
 #
 # TOML file used for component installation
 #
-# Version 0.1.0 / 24.02.2026
+# Version 0.1.0 / 26.02.2026
 #
 # --------------------------------------------------------------------------------------------------------------
 #
@@ -34,7 +34,7 @@
 [build-system]
 # 'requires' specifies the dependencies necessary for the build process (meaning the conversion of source code into an installable distribution)
 requires      = ["setuptools>=80.9.0", "wheel", "build", "docutils>=0.22.4", "robotframework>=6.1", "colorama",
-                 "robotframework-qconnect-base", "Appium-Python-Client", "selenium",
+                 "robotframework-qconnect-base>=1.3.0", "Appium-Python-Client", "selenium",
                  "GenPackageDoc", "PythonExtensionsCollection"] # need to be strengthened later to: "GenPackageDoc>=0.43.0"
 build-backend = "build_backend"
 backend-path  = ["."] # the repository main folder
@@ -64,7 +64,7 @@ classifiers = [
 dependencies = [
     "robotframework>=6.1",
     "colorama",
-    "robotframework-qconnect-base",
+    "robotframework-qconnect-base>=1.3.0",
     "Appium-Python-Client",
     "selenium",
     "GenPackageDoc",
