@@ -23,6 +23,7 @@ Currently reserved for future development
 """
 
 import sys
+import platform
 import logging
 
 from pathlib import Path
@@ -52,7 +53,10 @@ Custom Build Backend
     """
 
     def __init__(self):
-        pass
+        # is Windows specific application
+        platform_system = platform.system()
+        if platform_system != "Windows":
+            raise Exception(f"This package is not supported under {platform_system}. Aborting now.")
 
     def run_pre_build_steps(self) -> int:
         """
