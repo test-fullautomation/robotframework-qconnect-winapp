@@ -71,7 +71,6 @@ dependencies = [
     "PythonExtensionsCollection"
 ]
 dynamic = ["version"]
-platforms = ["win32"] # Makes Wheel Linux-incompatible
 
 # --------------------------------------------------------------------------------------------------------------
 # [project.optional-dependencies]
