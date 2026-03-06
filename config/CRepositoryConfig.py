@@ -29,7 +29,7 @@
 #
 # --------------------------------------------------------------------------------------------------------------
 #
-# 26.02.2026
+# 06.03.2026
 #
 # --------------------------------------------------------------------------------------------------------------
 
@@ -152,7 +152,7 @@ class CRepositoryConfig():
         sPython         = CString.NormalizePath(sys.executable)
         sPythonVersion  = sys.version
 
-        if sPlatformSystem != "Windows": # Windows only, no "Linux" support
+        if sPlatformSystem not in ("Windows", "Linux"):
             bSuccess = False
             sResult  = f"Operating system {sPlatformSystem} ({sOSName}) not supported"
             return bSuccess, sResult

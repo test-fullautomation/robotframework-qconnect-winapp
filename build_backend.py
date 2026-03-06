@@ -53,10 +53,7 @@ Custom Build Backend
     """
 
     def __init__(self):
-        # is Windows specific application
-        platform_system = platform.system()
-        if platform_system != "Windows":
-            raise Exception(f"This package is not supported under {platform_system}. Aborting now.")
+        pass
 
     def run_pre_build_steps(self) -> int:
         """

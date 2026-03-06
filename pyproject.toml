@@ -18,7 +18,7 @@
 #
 # TOML file used for component installation
 #
-# Version 0.1.0 / 26.02.2026
+# Version 0.1.0 / 06.03.2026
 #
 # --------------------------------------------------------------------------------------------------------------
 #
@@ -71,6 +71,7 @@ dependencies = [
     "PythonExtensionsCollection"
 ]
 dynamic = ["version"]
+platforms = ["win32"] # Makes Wheel Linux-incompatible
 
 # --------------------------------------------------------------------------------------------------------------
 # [project.optional-dependencies]
