@@ -1,4 +1,4 @@
-.. Copyright 2020-2023 Robert Bosch GmbH
+.. Copyright 2020-2026 Robert Bosch GmbH
 
 .. Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -15,12 +15,23 @@
 Package Description
 ===================
 
-The **QConnectWinapp** description will be available soon.
+**QConnectWinapp** is an extension for the **Robot Framework** keyword library **QConnectBase** and designed to simplify and automate
+Windows application GUI testing. **QConnectWinapp** is built to provide seamless and efficient GUI testing experiences for Windows applications.
+
+Prerequisites
+-------------
+
+To use **QConnectWinapp**, the following applications must be installed before:
+
+* `WinAppDriver <https://github.com/Microsoft/WinAppDriver/releases>`__ (version >= 1.2.1)
+* `Windows SDK <https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/>`__
 
 How to install
 --------------
 
-Installer will be available soon.
+REPOSITORYNAME : robotframework-qconnect-winapp
+    IMPORTNAME : QConnectWinapp
+   PACKAGENAME : robotframework-qconnect-winapp
 
 
 The **QConnectWinapp** can be installed in two different ways.
@@ -29,35 +40,71 @@ The **QConnectWinapp** can be installed in two different ways.
 
    .. code::
 
-      pip install QConnectWinapp
+      pip install robotframework-qconnect-winapp
 
-   `QConnectWinapp in PyPi <https://pypi.org/project/QConnectWinapp/>`_
+   `QConnectWinapp in PyPi <https://pypi.org/project/robotframework-qconnect-winapp/>`_
 
 2. Installation via GitHub (recommended for developers)
 
-   a. Clone the **robotframework-qconnect-winapp** repository to your machine.
+   * Clone the **robotframework-qconnect-winapp** repository to your machine.
 
-      .. code::
+     .. code::
 
-         git clone https://github.com/test-fullautomation/robotframework-qconnect-winapp.git
+        git clone https://github.com/test-fullautomation/robotframework-qconnect-winapp.git
 
-      `QConnectWinapp in GitHub <https://github.com/test-fullautomation/robotframework-qconnect-winapp>`_
+     `QConnectWinapp in GitHub <https://github.com/test-fullautomation/robotframework-qconnect-winapp>`_
 
-   b. Install dependencies
+   * Use the following command to install **QConnectWinapp** (executed in repository main folder):
 
-      **QConnectWinapp** requires some additional Python libraries. Before you install the cloned repository sources
-      you have to install the dependencies manually. The names of all related packages you can find in the file ``requirements.txt``
-      in the repository root folder. Use pip to install them:
+     .. code::
 
-      .. code::
+        python -m pip install .
 
-         pip install -r requirements.txt
+     Or:
 
-   c. Use the following command to install the **QConnectWinapp**:
+     .. code::
 
-      .. code::
+        python -m pip install --proxy <proxy> .
 
-         setup.py install
+     This command will also download and install all dependencies that are required to work with the source files in the current repository.
+     After the initial installation of **QConnectWinapp** is done, you have the following two possibilities:
+
+     1. *Clean the previous installation*:
+
+        .. code::
+
+           python "./cleanup_installation.py"
+
+        ``cleanup_installation.py`` explicitly deletes all files and folders within the component installation folder under
+        ``site-packages`` and also deletes local build artefacts.
+
+     2. *Render the component documentation*:
+
+        .. code::
+
+           python "./genpackagedoc.py"
+
+        This would e.g. be required in case of changes in the interface of **QConnectWinapp**.
+
+        The documentation is rendered by a separate application called **GenPackageDoc**, that is part
+        of the build dependencies and runtime dependencies of **QConnectWinapp**.
+
+        **GenPackageDoc** needs to be configured. Details about how to do this, can be found in the
+        `README.rst <https://github.com/test-fullautomation/python-genpackagedoc/blob/develop/README.rst>`_
+        (sections *Install dependencies* and *Configure dependencies*).
+
+   * Use the following command to build **QConnectWinapp** (executed in repository main folder):
+
+     .. code::
+
+        python -m build .
+
+     Or:
+
+     .. code::
+
+        python -m pip config set global.proxy <proxy>
+        python -m build .
 
 
 Package Documentation
@@ -91,7 +138,7 @@ Contributors
 License
 -------
 
-Copyright 2020-2023 Robert Bosch GmbH
+Copyright 2020-2026 Robert Bosch GmbH
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
