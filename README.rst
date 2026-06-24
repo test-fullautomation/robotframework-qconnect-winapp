@@ -29,11 +29,6 @@ To use **QConnectWinapp**, the following applications must be installed before:
 How to install
 --------------
 
-REPOSITORYNAME : robotframework-qconnect-winapp
-    IMPORTNAME : QConnectWinapp
-   PACKAGENAME : robotframework-qconnect-winapp
-
-
 The **QConnectWinapp** can be installed in two different ways.
 
 1. Installation via PyPi (recommended for users)
